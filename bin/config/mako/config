@@ -1,0 +1,26 @@
+font=monospace 10
+text-color=#787c99
+format=%a ⏵ %s %b
+sort=-time
+output=eDP-1
+layer=overlay
+anchor=top-right
+background-color=#08080b
+width=300
+height=110
+margin=5
+padding=10
+border-size=2
+border-color=#7aa2f7
+border-radius=8
+icons=0
+max-icon-size=64
+default-timeout=5000
+ignore-timeout=1
+
+[urgency=normal]
+border-color=#7aa2f7
+
+[urgency=high]
+border-color=#f7768e
+default-timeout=0

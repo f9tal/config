@@ -1,0 +1,6 @@
+#custom-weather {
+    padding: 5px 15px;
+    margin: 0px 2px;
+    background-color: @background-alt;
+    border-radius: 15px;
+}

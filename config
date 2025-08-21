@@ -1,0 +1,16 @@
+# --- User Configuration ---
+
+# GTK theme
+GTK_THEME="Adwaita-dark"
+
+# Icon theme
+ICON_THEME="Adwaita"
+
+# Font
+FONT_NAME="Adwaita Sans 11"
+
+# Monospace font
+MONOSPACE_FONT_NAME="Adwaita Mono 11"
+
+# Scaling factor (e.g., 1.5 for 150%)
+# SCALING_FACTOR="1.5"

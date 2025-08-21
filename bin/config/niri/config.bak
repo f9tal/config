@@ -1,0 +1,312 @@
+input {
+    keyboard {
+        xkb {
+            layout "us"
+            options "compose:ralt"
+        }
+        numlock
+    }
+    mouse {
+        accel-profile "flat"
+    }
+    touchpad {
+        dwt
+        tap
+        natural-scroll
+        scroll-factor 0.7
+    }
+}
+
+
+
+
+output "eDP-1" {
+    scale 1.6
+    background-color "#000000"
+}
+
+
+
+
+xwayland-satellite {
+    path "xwayland-satellite"
+}
+
+
+
+
+overview {
+    zoom 0.57
+    backdrop-color "#111010"
+}
+
+
+
+
+layout {
+    gaps 2
+    center-focused-column "never"
+    preset-column-widths {
+        proportion 0.5
+        proportion 0.66667
+    }
+    default-column-width {
+        proportion 0.5
+    }
+    focus-ring {
+        width 2
+        active-gradient from="#5294e2" to="#89b4fa" angle=45
+        inactive-gradient from="#202337" to="#363a4f" angle=45 relative-to="workspace-view"
+        urgent-gradient from="#f5a97f" to="#f4dbd6" angle=45
+    }
+    shadow {
+        on
+        softness 30
+        spread 6
+        offset x=0 y=4
+        color "#00000099"
+        draw-behind-window false
+    }
+}
+
+
+
+
+animations {
+    window-open {
+        spring damping-ratio=1.0 stiffness=600 epsilon=0.001
+    }
+    window-close {
+        spring damping-ratio=1.0 stiffness=500 epsilon=0.001
+    }
+    window-movement {
+        spring damping-ratio=1.0 stiffness=600 epsilon=0.001
+    }
+    window-resize {
+        spring damping-ratio=1.0 stiffness=600 epsilon=0.001
+    }
+    workspace-switch {
+        spring damping-ratio=1.0 stiffness=1000 epsilon=0.001
+    }
+    horizontal-view-movement {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.001
+    }
+    config-notification-open-close {
+        spring damping-ratio=1.0 stiffness=500 epsilon=0.001
+    }
+}
+
+
+
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+
+
+
+prefer-no-csd
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+
+
+
+binds {
+    Super+Return { spawn "alacritty"; }
+    Super+L { spawn "sh" "-c" "swaylock -f"; }
+    Super+Shift+Return { spawn "alacritty" "--command" "bash"; }
+    Super+Shift+P { spawn "alacritty" "--command" "htop"; }
+    Super+Alt+A { spawn "alacritty" "--command" "cmus"; }
+    Super+Space { spawn "fuzzel"; }
+    Super+W { spawn "google-chrome-stable"; }
+    Super+Alt+W { spawn "firefox"; }
+    Super+E { spawn "nautilus"; }
+    Super+Shift+W { spawn "libreoffice"; }
+    Super+D { spawn "discord"; }
+    Super+Shift+A { spawn "spotify"; }
+    Super+Shift+Q { spawn "qbittorrent"; }
+    Super+Shift+I { spawn "pavucontrol"; }
+    Super+Shift+V { spawn "sh" "-c" "mullvad connect"; }
+    Super+Alt+V { spawn "sh" "-c" "mullvad disconnect"; }
+    Super+Q { close-window; }
+    Super+Left { focus-column-left; }
+    Super+Down { focus-window-down; }
+    Super+Up { focus-window-up; }
+    Super+Right { focus-column-right; }
+    Super+Shift+H { move-column-left; }
+    Super+Shift+J { move-window-down; }
+    Super+Shift+K { move-window-up; }
+    Super+Shift+L { move-column-right; }
+    Super+Alt+H { set-column-width "-20"; }
+    Super+Alt+L { set-column-width "+20"; }
+    Super+Alt+K { set-window-height "-20"; }
+    Super+Alt+J { set-window-height "+20"; }
+    Super+F { maximize-column; }
+    Super+Shift+F { fullscreen-window; }
+    Super+V { toggle-window-floating; }
+    Super+BracketLeft { focus-workspace-up; }
+    Super+BracketRight { focus-workspace-down; }
+    Super+1 { focus-workspace 1; }
+    Super+2 { focus-workspace 2; }
+    Super+3 { focus-workspace 3; }
+    Super+4 { focus-workspace 4; }
+    Super+5 { focus-workspace 5; }
+    Super+6 { focus-workspace 6; }
+    Super+7 { focus-workspace 7; }
+    Super+8 { focus-workspace 8; }
+    Super+9 { focus-workspace 9; }
+    Super+0 { focus-workspace 10; }
+    Super+Shift+1 { move-column-to-workspace 1; }
+    Super+Shift+2 { move-column-to-workspace 2; }
+    Super+Shift+3 { move-column-to-workspace 3; }
+    Super+Shift+4 { move-column-to-workspace 4; }
+    Super+Shift+5 { move-column-to-workspace 5; }
+    Super+Shift+6 { move-column-to-workspace 6; }
+    Super+Shift+7 { move-column-to-workspace 7; }
+    Super+Shift+8 { move-column-to-workspace 8; }
+    Super+Shift+9 { move-column-to-workspace 9; }
+    Super+Shift+0 { move-column-to-workspace 10; }
+    Super+O repeat=false { toggle-overview; }
+    Super+Shift+E { quit; }
+    Print { screenshot; }
+    Ctrl+Print { screenshot-screen; }
+    Alt+Print { screenshot-window; }
+    Super+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+    Super+Shift+R { spawn "sh" "-c" "$HOME/.config/niri/scripts/reload-waybar.sh"; }
+    XF86AudioMute { spawn "pactl" "set-sink-mute" "@DEFAULT_SINK@" "toggle"; }
+    XF86AudioLowerVolume { spawn "pactl" "set-sink-volume" "@DEFAULT_SINK@" "-5%"; }
+    XF86AudioRaiseVolume { spawn "pactl" "set-sink-volume" "@DEFAULT_SINK@" "+5%"; }
+    XF86MonBrightnessUp { spawn "sh" "-c" "$HOME/.config/niri/scripts/brightness.sh up"; }
+    XF86MonBrightnessDown { spawn "sh" "-c" "$HOME/.config/niri/scripts/brightness.sh down"; }
+    XF86KbdBrightnessUp { spawn "sh" "-c" "$HOME/.config/niri/scripts/kbd-brightness.sh up"; }
+    XF86KbdBrightnessDown { spawn "sh" "-c" "$HOME/.config/niri/scripts/kbd-brightness.sh down"; }
+    XF86AudioPlay { spawn "playerctl" "play-pause"; }
+    XF86AudioNext { spawn "playerctl" "next"; }
+    XF86AudioPrev { spawn "playerctl" "previous"; }
+    XF86AudioStop { spawn "playerctl" "stop"; }
+    XF86AudioMicMute { spawn "pactl" "set-source-mute" "@DEFAULT_SOURCE@" "toggle"; }
+    Super+G { spawn "sh" "-c" "$HOME/scripts/heroic.sh"; }
+    Super+Shift+F23 { spawn "fuzzel"; }
+    Super+X { spawn "sh" "-c" "$HOME/.config/niri/scripts/power-menu.sh"; }
+}
+
+
+
+
+window-rule {
+    match app-id="chromium"
+    match app-id="chrome"
+    match app-id="legcord"
+    match app-id="discord"
+    match app-id="code"
+    scroll-factor 0.5
+    geometry-corner-radius 8
+    clip-to-geometry true
+}
+
+window-rule {
+    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+    default-floating-position x=10 y=10 relative-to="bottom-right"
+}
+
+window-rule {
+    open-maximized true
+}
+
+window-rule {
+    match app-id="Alacritty"
+    open-maximized false
+    scroll-factor 0.68
+    shadow {
+        color "#1E454A57"
+        softness 10
+        spread 6
+        draw-behind-window false
+    }
+}
+
+window-rule {
+    match app-id="ghostty"
+    open-maximized false
+    scroll-factor 0.4
+    shadow {
+        color "#1E454A57"
+        softness 10
+        spread 6
+        draw-behind-window true
+    }
+}
+
+window-rule {
+    match app-id="blueman-manager"
+    match app-id="pwvucontrol"
+    match app-id="mpv"
+    match app-id="com.rafaelmardojai.Blanket"
+    match app-id="org.gnome.Showtime"
+    match app-id="org.gnome.Loupe"
+    open-floating true
+}
+
+window-rule {
+    match app-id="com.github.tchx84.Flatseal"
+    match app-id="io.github.flattool.Warehouse"
+    match app-id="org.gnome.Papers"
+    match app-id="com.spotify.Client"
+    match app-id="org.gnome.TextEditor"
+    match app-id="org.gnome.World.Secrets"
+    match app-id="Nautilus"
+    match app-id="firefox"
+    open-maximized false
+    geometry-corner-radius 8
+    clip-to-geometry true
+}
+
+window-rule {
+    match app-id="io.bassi.Amberol"
+    match app-id="amberol"
+    open-floating true
+    open-maximized false
+    default-column-width {
+        proportion 0.15
+    }
+    default-window-height {
+        fixed 500
+    }
+    geometry-corner-radius 8
+    clip-to-geometry true
+}
+
+window-rule {
+    draw-border-with-background false
+}
+
+
+
+
+layer-rule {
+    match namespace="^launcher$"
+    geometry-corner-radius 8
+    shadow {
+        on
+        color "#28282857"
+        softness 10
+        spread 4
+        draw-behind-window true
+    }
+}
+
+
+
+
+layer-rule {
+    match namespace="mako"
+    geometry-corner-radius 8
+    shadow {
+        on
+        color "#28282857"
+        softness 10
+        spread 4
+        draw-behind-window true
+    }
+}

@@ -1,0 +1,103 @@
+{
+	"layer": "top",	
+	"position": "top",
+    "height": 22,
+
+    "modules-left": ["niri/workspaces", "niri/window"],
+    "modules-center": [],
+    "modules-right": ["mpris", "network", "memory", "backlight", "pulseaudio", "battery", "clock", "tray"],
+
+    /* --- Left Modules --- */
+	"niri/workspaces": {
+        "disable-scroll": true,
+        "disable-markup": true,
+        "format": "{index}" 
+    },
+	"niri/window": {
+    	"format": "{}",
+    	"max-length": 150
+    },
+
+    /* --- Right Modules --- */
+    "mpris": {
+        "format": "{player_icon} {dynamic}",
+        "format-paused": " Paused",
+        "format-stopped": "",
+        "player-icons": {
+            "default": "",
+            "mpv": "🎵",
+            "spotify": ""
+        },
+        "max-length": 27
+    },
+    "custom/updates": {
+        "format": " {}",
+        "tooltip": true,
+        "tooltip-format": "{} pending updates",
+        "exec": "checkupdates | wc -l",
+        "exec-if": "which checkupdates",
+        "interval": 3600
+    },
+    "disk": {
+        "interval": 30,
+        "format": " {percentage_used}%",
+        "path": "/"
+    },
+    "temperature": {
+	   	"thermal-zone": 0,
+		"format": "{icon} {temperatureC}°C",
+		"format-icons":[""],
+		"interval": 30
+    },
+    "cpu": {
+        "format": " {usage}%",
+        "tooltip": true,
+        "interval": 10
+    },
+    "memory": {
+        "format": " {}%",
+        "format-alt": " {used}GB/{total}GB",
+        "interval": 30
+    },
+    "network": {
+        "interface": "wlan0", 
+        "format-wifi": " wlan0",
+        "format-disconnected": " Disconnected",
+        "interval": 60
+    },
+	"backlight": {
+    	"device": "intel_backlight",
+    	"format": "{icon} {percent}%",
+    	"format-icons": ["󰃞", "󰃟", "󰃠", "󰃠"],
+    	"interval": 60
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-bluetooth": " {volume}%",
+        "format-muted":" Mute",
+        "interval": 60,
+        "format-icons": {
+            "default": ["", ""]
+        },
+       "on-click": "blueman-manager"    
+    },
+    "battery": {
+        "bat": "BAT0",
+        "states": {
+              "warning": 20,
+              "critical": 10
+        },
+        "format": "{icon} {capacity}%",
+        "format-icons": ["", "", "", "", ""],
+        "interval": 30
+    },
+    "clock": {
+        "format": " {:%a %b %d %R}",
+        "tooltip-format": "<tt>{calendar}</tt>",
+        "interval": 30
+    },
+    "tray": {
+        "icon-size": 15,
+        "spacing": 15
+    }
+}

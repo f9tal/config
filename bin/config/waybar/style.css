@@ -1,0 +1,236 @@
+@import "theme.css";
+
+/* Tomorrow-Night-Enhanced OLED - Professional */
+@define-color background      #000000;
+@define-color background-alt  #1a1b26;
+@define-color background-hover #22232d;
+@define-color foreground      #a9b1d6;
+@define-color foreground-alt  #787c99;
+@define-color red             #f7768e;
+@define-color green           #41a6b5;
+@define-color yellow          #e0af68;
+@define-color blue            #7aa2f7;
+@define-color magenta         #bb9af7;
+
+* {
+    font-family: "monospace";
+    font-size: 16px; /* Slightly smaller font */
+    font-weight: normal; /* Default to normal, use bold for specific elements */
+    border: none;
+    border-radius: 15px; /* Sharper corners */
+}
+
+/* --- Base Window --- */
+window#waybar {
+    background-color: @background;
+    color: @foreground;
+    transition: background-color 0.3s ease;
+}
+
+/* --- Animations --- */
+@keyframes slide-in {
+    from {
+        margin-top: -20px;
+        opacity: 0;
+    }
+    to {
+        margin-top: 0px; /* Align with new height */
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* --- Module Groups --- */
+.modules-left, .modules-right {
+	background-color: transparent;
+	padding: 0 2px;
+}
+
+/* --- Workspaces --- */
+#workspaces button {
+	padding: 4px 12px; 
+ 	margin: 0px 0px; 
+ 	min-width: 1px;
+	color: @foreground-alt;
+    background-color: transparent;
+    font-weight: normal;
+    border-radius: 10px; /* Consistent with global radius */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    animation: slide-in 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+#workspaces button.focused {
+	background-color: @background-alt;
+	color: @foreground;
+    font-weight: bold;
+}
+
+#workspaces button:hover {
+	background-color: @background-hover;
+}
+
+#workspaces {
+    padding: 4px 10px; /* Reduced padding */
+    margin: 0px 1px; /* Reduced margin */
+    background-color: transparent;
+    box-shadow: 0 0 2px 0 rgba(0,0,0,0.1); /* More subtle shadow */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+/* --- General Module Styling --- */
+#custom-power,
+#custom-weather,
+#custom-updates,
+#disk,
+#mpris,
+#temperature,
+#cpu,
+#memory,
+#custom-network,
+#backlight,
+#pulseaudio,
+#battery,
+#clock,
+#tray,
+#mode,
+#window {
+    padding: 4px 10px; /* Reduced padding */
+    margin: 0px 1px; /* Reduced margin */
+    background-color: transparent;
+    box-shadow: 0 0 2px 0 rgba(0,0,0,0.1); /* More subtle shadow */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    animation: fade-in 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both, slide-in 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+#custom-weather:hover,
+#custom-updates:hover,
+#disk:hover,
+#mpris:hover,
+#temperature:hover,
+#cpu:hover,
+#memory:hover,
+#custom-network:hover,
+#backlight:hover,
+#pulseaudio:hover,
+#battery:hover,
+#clock:hover,
+#tray:hover,
+#mode:hover,
+#window:hover,
+#hardware:hover {
+    background-color: @background-hover;
+    color: @foreground; /* Keep foreground color on hover for subtlety */
+}
+
+#window {
+	 color: @foreground;
+	 background-color: @background;
+     padding: 0 10px;
+     
+}
+
+
+/* --- Module Grouping --- */
+#hardware {
+    padding: 4px 10px;
+    margin: 0px 1px;
+    background-color: transparent;
+    border-radius: 10px;
+}
+
+#system-tray {
+    background-color: @transparent;
+    border-radius: 10px;
+    padding: 0 10px;
+    margin: 5px 0px;
+}
+
+#system-tray > * {
+    padding: 4px 5px;
+}
+
+
+
+
+/* --- Module States --- */
+
+/* Warning States */
+#temperature.warning,
+#cpu.warning,
+#memory.warning,
+#disk.warning,
+#custom-network.warning {
+   color: @yellow;
+}
+
+/* Critical States */
+#battery.critical,
+#temperature.critical,
+#cpu.critical,
+#memory.critical,
+#disk.critical,
+#custom-network.critical {
+   color: @red;
+}
+
+/* --- Module Colors -- */
+#clock,
+#battery,
+#pulseaudio,
+#memory,
+#cpu,
+#temperature,
+#disk,
+#network,
+#tray,
+#custom-updates,
+#mpris,
+#backlight {
+    color: @foreground;
+}
+
+/* Special States */
+#network.disconnected {
+    color: @red;
+}
+
+#mode {
+	 background-color: @background-alt;
+	 color: @red;
+     padding: 2px 6px;
+     border-radius: 50%;
+}
+
+#battery.charging,
+#battery.plugged {
+    color: @green;
+}
+
+#pulseaudio.muted {
+    color: @red;
+}
+
+
+
+/* --- Tooltips --- */
+tooltip {
+    background-color: @background-alt;
+    border: 1px solid @background-hover;
+    border-radius: 10px;
+    padding: 10px;
+    color: @foreground;
+}
+
+tooltip label {
+    font-size: 14px;
+    color: @foreground;
+}
