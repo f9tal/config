@@ -7,7 +7,7 @@
 
 
 
-# Desktop Environment
+# Welcome
 
 This will attempt to install my preconfigured environment to the target machine.
 
