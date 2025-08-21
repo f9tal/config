@@ -18,7 +18,8 @@ This will attempt to install my preconfigured environment to the target machine.
 *   **Launcher:** fuzzel
 *   **Notifications:** Mako
 *   **Terminal:** Alacritty
-*   **Utilities:** swaylock, swayidle, swaybg
+*   **Utilities:** swaylock, swayidle, swaybg 
+*   **Optional:** swayosd, xwayland-satellite
 
 ## Installation
 
