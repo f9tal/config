@@ -1,3 +1,12 @@
+
+<img width="3200" height="2000" alt="screenshot1" src="https://github.com/user-attachments/assets/84a7d04d-3a7b-4fe2-8328-e3fa9e96642e" />
+
+<img width="3200" height="2000" alt="screenshot2" src="https://github.com/user-attachments/assets/e582f782-85ea-4095-933f-4543d473b5b6" />
+
+<img width="3200" height="2000" alt="screenshot3" src="https://github.com/user-attachments/assets/5d81ccd4-723e-4fb6-8f21-7f09fad6b98c" />
+
+
+
 # Desktop Environment
 
 This will attempt to install my preconfigured environment to the target machine.
